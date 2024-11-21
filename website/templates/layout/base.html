@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json" />
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='layout/images/icon/favicon_black_32x32.ico') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='layout/images/icon/favicon_black_128x128.ico') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='layout/images/icon/favicon_black_256x256.ico') }}">
+
+    <link rel="preload" href="{{url_for('static', filename='main/css/style.css')}}" as="style">
+    <link rel="stylesheet" href="{{url_for('static', filename='main/css/style.css')}}">
+
+    <link rel="preload" href="{{url_for('static', filename='main/images/logo.png')}}" as="image" type="image/png">
+    <title>{% block title %}Base{% endblock %}</title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <script>0</script>
+    <nav>
+        <div class="nav_margin">
+            <div class="logo_wrapper">
+                {% block logo_link %}
+                <a href="{{url_for('home.homepage')}}">
+                    <img src="{{url_for('static', filename='main/images/logo.png')}}">
+                </a>
+                {% endblock %}
+            </div>
+
+            <div class="nav_links">
+                <ul>
+                    <li class="asourkat_nav">{% block sourkat_link %}<a href="https://asourkat.com" target="_blank" rel="noopener noreferrer"><span>Sour Kat</span></a>{% endblock %}</li>
+                    <li class="home_nav">{% block portfolio_link %}<a href="{{url_for('home.portfolio')}}"><span>Portfolio</span></a>{% endblock %}</li>
+                    <li class="about_me_nav">{% block aboutme_link %}<a href="{{url_for('home.homepage')}}#about_me"><span>About Me</span></a>{% endblock %}</li>
+                    <li class="contact_me_nav">{% block contactme_link %}<a href="{{url_for('home.homepage')}}#contact_me"><button>Contact Me</button></a>{% endblock %}</li>
+                </ul> 
+            </div>
+        </div>
+    </nav>
+    <main>
+    {% block content %}
+    
+    {% endblock %}
+    </main>
+    <footer class="footer">
+        <div class="foot_wrapper footer1">
+            <ul>
+                <li class="filled"><h4><a href="{{url_for('home.homepage')}}">Home Page</a></h4></li>
+                <li class="filled"><p><a href="{{url_for('home.homepage')}}#about_me">About Me</a></p></li>
+                <li class="filled"><p><a href="{{url_for('home.portfolio')}}">Portfolio</a></p></li>
+                <li class="filled"><p><a href="https://asourkat.com" target="_blank" rel="noopener noreferrer">Sour Kat</a></h4></li>
+                <li class="filled"><p><a href="{{url_for('pixel_art.index')}}">Pixel Art</a></h4></li>
+                <li class="filled"><p><a href="{{url_for('javascript_counter.index')}}">Javascript Counter</a></h4></li>
+            </ul>
+        </div>
+        <div class="foot_wrapper footer2">
+            <ul>
+                <li class="filled"><p><a href="{{url_for('chat_app.index')}}">Chat App</a></h4></li>
+                <li class="filled"><p><a href="{{url_for('texas_toms.index')}}">Texas Toms</a></h4></li>
+                <li class="filled"><p><a href="{{url_for('parcel_viewer.maps')}}">Parcel Viewer</a></h4></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="foot_wrapper footer3">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+
+            </ul>
+        </div>
+        <div class="foot_wrapper footer4">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% macro menucard(title, description, link=url_for('javascript_counter.index'), image=url_for('static', filename='images/Portfolio_Image_Template.png')) %}
+<article class="card">
+    <div class="card_heading_grid">
+        <a href="{{ link }}"><img src="{{ image }}"/></a>
+    </div>
+    <div class="card_text">
+        <h2>{{title}}</h2>
+        <p>{{description}}</p>
+    </div>
+</article>
+{% endmacro %}

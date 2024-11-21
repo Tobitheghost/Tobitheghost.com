@@ -1,0 +1,20 @@
+{% extends "layout/base.html"%}
+{% block title %}Javascript Counter{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='javascript_counter/css/javascript_counter.css')}}">
+{% endblock %}
+{% block content %}
+
+<main>
+    <section>
+        <label class="counterLabel" id="counterLabel">0</label>
+        <div id="buttonContainer">
+            <button id="decreaseButton">< - </button>
+            <button id="resetButton">reset</button>
+            <button id="increaseButton"> + ></button>
+        </div>
+    </section>
+</main>
+
+    <script src="{{url_for('static', filename='javascript_counter/javascript/index.js')}}"></script>
+{% endblock %}

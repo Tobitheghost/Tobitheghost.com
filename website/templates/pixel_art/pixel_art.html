@@ -1,0 +1,11 @@
+{% extends "layout/base.html"%}
+{% block title %}Pixel Art Showcase{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='pixel_art/css/pixel_art.css')}}">
+{% endblock %}
+
+{% block content %}
+<H1 style="grid-column: 1/-1">
+    Pixel Art
+</H1>
+{% endblock %}

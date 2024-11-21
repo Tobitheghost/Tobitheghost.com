@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Texas Toms Portfolio</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{url_for('static', filename='texas_toms/css/texas_toms.css')}}">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="{{ url_for('home.portfolio') }}">Portfolio</a></li>
+                <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
+                <li><a href="{{ url_for('home.homepage') }}#contact-input">Contact</a></li>
+            </ul>
+        </nav>
+        <a class="navButton" href="#"><button>ORDER ONLINE</button></a>
+    </header>
+
+    <div class="heroContainer">
+        <div class="hero" style="background-image: url({{url_for('static', filename='texas_toms/images/hero.jpg')}});">
+            <h1>TEXAS TOMS</h1>
+            <h2>Made to order - always fresh and healthy food</h2>
+            <div class="buttonHero">
+                <button>Start Your Order</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="middle">
+        <div class="img One">
+            <img src="{{url_for('static', filename='texas_toms/images/middleOne.jpg')}}" />
+        </div>
+        <div class="img Two">
+            <img src="{{url_for('static', filename='texas_toms/images/middleTwo.jpg')}}" />
+        </div>
+        <div class="img Three">
+            <img src="{{url_for('static', filename='texas_toms/images/middleThree.jpg')}}" />
+        </div>
+        <div class="img Four">
+            <img src="{{url_for('static', filename='texas_toms/images/middleFour.jpg')}}" />
+        </div>
+    </div>
+
+    <div class="Reviews">
+        <p class="header">Reviews</p>
+        <div class="first review">
+            <p>
+                "Fantastic. We ordered the two fish sandwiches. Freshly made. Tasted awesome.<br><br>"Belyndae J.
+            </p>
+        </div>
+        <div class="second review">
+            <p>
+                "I enjoy going to this location. The food is always fresh and delicious. The staff knows my
+                order better than I do. They try going the extra mile to satisfy the customer."<br><br>Stephanie C.
+            </p>
+        </div>
+        <div class="third review">
+            <p>
+                "The food was extremely delicious as always, and customer service was wonderful. Very polite and prompt
+                and quick."<br><br>John L.
+            </p>
+        </div>
+        <div class="button">
+            <button>Write A Review</button>
+        </div>
+    </div>
+
+    <div class="Contact">
+        <div class="directions">
+            <p class="header">Texas Toms Prospect</p>
+            <p class="body">
+                At Texas Toms Prospect, you can find a variety of cuisine such as Kids Cheeseburger Basket, 5pc Wings
+                Combo, Chili Dog Combo,
+                Double Junior Cheeseburger, and Tots with Chili & Cheese. We are conveniently located Prospect Avenue.
+                Order online for carryout
+                or delivery!
+            </p>
+            <p class="sub header">Cuisines</p>
+            <ul class="items">
+                <li>American</li>
+                <li>|</li>
+                <li>Mediterranean</li>
+                <li>|</li>
+                <li>Mexican</li>
+            </ul>
+            <p class="sub header">Atmosphere</p>
+            <ul class="items">
+                <li>Chill</li>
+            </ul>
+            <p class="sub header">Food Types</p>
+            <ul class="items">
+                <li>Family Style</li>
+                <li>|</li>
+                <li>Healthy Options</li>
+                <li>|</li>
+                <li>Kids Menu</li>
+                <li>|</li>
+                <li>Vegetarian Options</li>
+            </ul>
+            <p class="sub header">Service Options</p>
+            <ul class="items">
+                <li>Free Parking</li>
+                <li>|</li>
+                <li>Happy Hour</li>
+                <li>|</li>
+                <li>Takeout Only</li>
+            </ul>
+            <p class="address">
+                <a>
+                    6950 PROSPECT AVE<br>
+                    KANSAS CITY, MO 64132
+                </a>
+                <a>
+                    (816) 216-6239
+                </a>
+            </p>
+            <p class="sub header">Business Hours</p>
+            <ul class="time">
+                <li>Mon - Wed: 10:00 AM - 1:30 AM</li>
+                <li>Thu & Fri: 10:00 AM - 2:30 AM</li>
+                <li>Sat & Sun: 10:00 AM - 1:30 AM</li>
+            </ul>
+        </div>
+
+        <div class="Form">
+            <div class="container">
+                <div class="title header">
+                    <p>Get In Touch</p>
+                </div>
+                <div class="name">
+                    <p>Name</p>
+                    <input type="text">
+                </div>
+                <div class="email">
+                    <p>Email</p>
+                    <input type="email">
+                </div>
+                <div class="phone">
+                    <p>Phone Number</p>
+                    <input type="tel">
+                </div>
+                <div class="message">
+                    <p>Message</p>
+                    <textarea name="contact_msg" rows="6" cols="130" placeholder="  Enter a Message" autocomplete="off"
+                        required></textarea>
+                </div>
+                <div class="contactButton">
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

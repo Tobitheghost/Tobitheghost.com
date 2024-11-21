@@ -1,0 +1,32 @@
+{% extends "layout/base.html"%}
+
+{% block title %}Chat App{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='chat_app/css/chat_app.css')}}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+{% endblock %}
+{% block nav_links %}
+
+{% endblock %}
+
+{% block content %}
+<section class="chat-app">
+    <h3>Enter Chat Room</h3>
+    <form method="post">
+        <div>
+            <label>Name:</label>
+            <input type="text" placeholder="Pick a Name!" name="name" value="{{name}}">
+        </div>
+        <div class="join">
+            <input type="text" placeholder="Room Code" name="code" value="{{code}}">
+            <button type="submit" name="join">Join a Room</button>
+        </div>
+        <button type="submit" name="create" class="create">Create a Room</button>
+        {% if error %}
+        <ul>
+            <li>{{error}}</li>
+        </ul>
+        {% endif %}
+    </form>
+</section>
+    {% endblock %}

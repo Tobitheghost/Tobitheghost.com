@@ -1,0 +1,45 @@
+{% extends "layout/base.html"%} {% block title %}Parcel Viewer{% endblock %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='parcel_viewer/css/parcel_viewer.css')}}" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+<script src="{{url_for('static', filename='parcel_viewer/javascript/parcel_viewer.js')}}"></script>
+{% endblock %}
+
+{% block content %}
+  <section>
+    <article class="text_input_container">
+      <h1 class="search_title">Parcel Viewer</h1>
+
+      <label for="address_input">Search By Address:</label>
+      <input
+        list="parcel_entires"
+        id="addressInput"
+        name="address_input"
+        placeholder="Enter House Numbers"
+        autocomplete="off"/>
+      <datalist id="parcel_entires">
+        <option value=""></option>
+      </datalist>
+    </article>
+    
+    <article class="text_detail_container">
+      <p>Owner Name: <span id="ownerName">_</span></p>
+      <p>Owner Name (2): <span id="ownerName2">_</span></p>
+      <p>Land Use: <span id="landUse">_</span></p>
+      <p>Effective Date: <span id="effectiveDate">_</span></p>
+      <p>Assessed Land Value: <span id="assessedLand">_</span></p>
+      <p>Assessed Improved Value: <span id="assessedImproved">_</span></p>
+    </article>
+
+    <article class="map_info_container">
+      <div id="map"></div>
+      <div id="parcel_view"></div>
+    </article>
+  </section>
+{% endblock %}

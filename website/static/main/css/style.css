@@ -1,0 +1,264 @@
+:root{
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+section {
+    box-sizing: content-box;
+    padding: 60px 0;
+    grid-column: 1/-1;
+    row-gap: 1px;
+    /* outline: solid red 2px */
+}
+
+input, button, textarea, select {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+fieldset {
+    padding: 0;
+}
+
+button {
+    margin: 10px;
+    width: 85px;
+    height: 36px;
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    font-size: 18px;
+    line-height: 130%;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    height: 64px;
+    width: 100vw;
+    align-items: center;
+    top: 0;
+    justify-content: center;
+    z-index: 1000;
+    background: rgba(50, 50, 50, .5);
+    backdrop-filter: blur(20px);
+}
+
+main {
+    position: relative;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(12, 65px);
+    grid-column: 1/-1;
+    width: 100%;
+    justify-content: center;
+    padding-top: 60px;
+    min-height: 61vh;
+}
+
+.logo_wrapper {
+    height: 36px;
+    width: 72px;
+    cursor: pointer;
+}
+
+.logo_wrapper img{
+    width: 100%;
+    padding: 0px 0px;
+}
+
+.nav_margin {
+    display: flex;
+    width: 1110px;
+    justify-self: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav_links {
+    display: flex;
+}
+nav ul {
+    display: flex;
+    align-items: center;
+}
+
+nav button {
+    width: 120px;
+    transition: background-color .2s linear;
+}
+
+nav button:hover {
+    background-color: darkred;
+}
+
+button{
+    transition: background-color .2s linear;
+}
+
+button:hover{
+    background-color: darkred;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+nav ul li a{
+    transition: color .5s linear;
+    text-decoration: none;
+    color: black;
+}
+
+nav ul li a:hover{
+    color: darkred;
+}
+
+@media (max-width: 550px){
+    nav .asourkat_nav{
+        width: 0px;
+        visibility: hidden;
+    }
+    nav .about_me_nav{
+        width: 0px;
+        visibility: hidden;
+    }
+}
+
+
+h1 {
+    margin: 20px 0;
+    font-size: 3.3rem;
+}
+
+h2 {
+    padding: 1rem 0 1rem 0;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin: 12px 0;
+    font-weight: 100;
+}
+
+/* Footer */
+
+footer {
+    position: relative;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(12, 65px);
+    grid-column: 1/-1;
+    width: 100%;
+    height: 360px;
+    justify-content: center;
+    align-content: center;
+    background: darkgrey;
+    margin: 0 auto;
+}
+
+.foot_wrapper {
+    padding: 24px 0;
+    grid-column: span 3;
+    width: 100%;
+}
+
+.foot_wrapper ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+}
+
+.foot_wrapper h4{
+    font-size: 1.4rem;
+
+}
+
+.foot_wrapper li {
+    list-style: none;
+    height: 1rem;
+    background: white;
+    margin: 12px 0;
+    width: 100%;
+    cursor: pointer;
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.foot_wrapper li.filled{
+    list-style: none;
+    height: 1rem;
+    background: none;
+    margin: 12px 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+@media (max-width: 1110px) {
+
+    footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .foot_wrapper.footer1 {
+        width: auto;
+    }
+
+    .foot_wrapper.footer2 {
+        width: auto;
+    }
+
+    .foot_wrapper.footer3 {
+        width: 0px;
+        visibility: hidden;
+    }
+
+    .foot_wrapper.footer4 {
+        width: 0px;
+        visibility: hidden;
+    }
+}
+
+.error {
+    list-style: none;
+    background-color: red;
+    padding: 0 .5rem;
+    border-radius: 1rem;
+    color: white;
+}
+
+.succsess {
+    list-style: none;
+    background-color: yellowgreen;
+    padding: 0 .5rem;
+    border-radius: 1rem;
+    color: black;    
+}

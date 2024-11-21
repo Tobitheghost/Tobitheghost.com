@@ -1,0 +1,108 @@
+main {
+    max-width: 1110px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    grid-gap: 30px;
+    grid-template-columns: repeat(12, 65px);
+    margin: 0 auto;
+}
+
+@media (max-width: 1110px) and (min-width: 730px) {
+    main {
+        max-width: 730px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+        grid-gap: 30px;
+        grid-template-columns: repeat(8, 65px);
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 730px){
+    main {
+        max-width: 350px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+        grid-gap: 30px;
+        grid-template-columns: repeat(4, 65px);
+        margin: 0 auto;
+    }
+}
+
+section.title {
+    display: grid;
+    margin: 120px 0 10px;
+}
+
+article.title_area {
+    display: grid;
+    width: 100%;
+    justify-items: center;
+}
+
+article.filter_areas {
+    display: flex;
+}
+
+article.filter_areas h3 {
+    display: flex;
+    padding: 0 10px;
+}
+
+div.filter_buttons {
+    display: grid;
+    justify-items: center;
+    padding: 0 10px;
+}
+
+div.filter_buttons button {
+    width: 100%;
+}
+
+
+section.grid_cards{
+    display: grid;
+    grid-column: span 12;
+    grid-template-columns: inherit;
+    grid-gap: 30px;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: inherit;
+    grid-column: span 4;
+    grid-template-rows: auto 40%;
+    border: 24px solid rgba(139, 0, 0, 0.6);
+    height: fit-content;
+    align-self: end;
+
+    .card_heading {
+        display: flex;
+        grid-column: inherit;
+        grid-row: 1 / 2;
+        width: 300px;
+        height: 384px;
+    }
+
+    .card_heading_grid {
+        display: flex;
+        grid-column: inherit;
+        grid-row: 1 / 2;
+        width: 300px;
+        height: 320px;
+    }
+
+    .card_text {
+        display: flex;
+        flex-direction: column;
+        grid-column: inherit;
+        grid-row: 2 / 3;
+        padding: 0 24px 0 24px;
+        height: 260px;
+        width: 302px;
+        border-top: 24px solid rgba(139, 0, 0, 0.6);
+    }
+}
