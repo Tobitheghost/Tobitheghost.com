@@ -1,0 +1,25 @@
+# ignore ALL files in ANY directory named __pycache__ and contents
+__pycache__/
+*.pyc
+*.py[cod]
+*$py.class
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# C extensions
+*.so
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# ignore ALL files named secret.py
+secret.py
+
+# ignore ALL files named site.log
+site.log
+
+# ignore ALL Database Files
+*.db
