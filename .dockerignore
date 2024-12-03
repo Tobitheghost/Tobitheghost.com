@@ -1,0 +1,13 @@
+# ignore ALL files in ANY directory named __pycache__ and contents
+__pycache__/
+*.pyc
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Flask stuff:
+instance/
+.webassets-cache
+

@@ -1,0 +1,82 @@
+main {
+    padding-bottom: 360px;
+}
+
+.cards_section {
+    /* outline: solid red 2px; */
+    max-width: 1110px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    grid-gap: 30px;
+    grid-template-columns: repeat(12, 65px);
+    margin: 0 auto;
+    
+    article {
+        display: grid;
+        border-radius: 10%;
+        /* outline: solid red 2px; */
+        width: 350px;
+        grid-template-areas:"main_image main_image social_svg_aside"
+                            "main_image main_image social_svg_aside"
+                            "description_footer description_footer description_footer";
+        grid-template-columns: 1fr 1fr 75px;
+        box-shadow: 4px 4px 8px black;
+        
+        .main_image {
+            display: flex;
+            grid-area: main_image;
+            /* background-color: rgba(50, 150, 50, .5); */
+            width: 100%;
+            align-self: center;
+            justify-self: center;
+
+            img {
+                width: 100%;
+                padding: 4px;
+                image-rendering: pixelated;
+            }
+        }
+
+        .social_svg_aside {
+            display: flex;
+            flex-direction: column;
+            grid-area: social_svg_aside;
+            /* background-color: rgba(150, 50, 50, .5); */
+            width: 75px;
+            align-items: end;
+            .svg_container {
+                display: flex;
+                background-color: rgba(150, 150, 50, .5);
+                width: 50px;
+                aspect-ratio: 1;
+                border-radius: 100%;
+                margin: 12px;
+                justify-content: center;
+                align-items: center;
+                a {
+                    display: flex;
+                    width: 50px;
+                    aspect-ratio: 1;
+                    justify-content: center;
+                    align-items: center;
+                    svg {
+                        width: 75%;
+                        aspect-ratio: 1;
+                        color: black;
+                    }
+                }
+            }
+        }
+        
+        .description_footer {
+            display: flex;
+            grid-area: description_footer;
+            /* background-color: rgba(50, 50, 150, .5); */
+            padding: 8px 0px 0 8px;
+            align-items: center;
+            /* justify-content: center; */
+        }
+    }
+
+}

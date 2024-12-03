@@ -50,6 +50,9 @@ CREATE TABLE IF NOT EXISTS Parcels(
         )
 
     def search(self, addr_q):
+        self.con = sqlite3.connect("website\database\parcel_viewer.db")
+        self.cur = self.con.cursor()
+        
         query = self.cur.execute(
             f'SELECT id, multipolygon, address FROM Parcels WHERE address LIKE "{addr_q}%" LIMIT 50'
         )
@@ -59,9 +62,6 @@ CREATE TABLE IF NOT EXISTS Parcels(
             for name in result
         ]
 
-        print(result_dict[0]["multipolygon"])
-        for item in list(result_dict[0]["multipolygon"]):
-            print(item)
         self.con.close()
         return result_dict
 

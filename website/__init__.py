@@ -65,6 +65,7 @@ def create_app():
     
     from .parcel_viewer.views import parcel_viewer
     app.register_blueprint(parcel_viewer, url_prefiix='/parcel_viewer')
+    csrf.exempt(parcel_viewer)
 
     return app
 
