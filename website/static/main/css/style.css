@@ -90,7 +90,7 @@ main {
     display: flex;
     width: 1110px;
     justify-self: center;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 

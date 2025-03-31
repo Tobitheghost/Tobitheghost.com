@@ -61,3 +61,8 @@ def styles():
 @home.errorhandler(CSRFError)
 def handle_csrf_error(e):
     return render_template('errors/csrf_error.html', reason=e.description, handler=True), 400
+
+#redirects
+@home.route('/TexasToms', methods=('GET', 'POST'))
+def texas_toms():
+    return render_template("texas_toms/texas_toms.html")

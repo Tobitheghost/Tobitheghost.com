@@ -3,29 +3,41 @@ section {
   grid-template-areas: 
   "input map map"
   "text map map";
-}
+} 
 
 article.text_input_container {
-  grid-area: input;
   /* outline: solid red 2px; */
+  grid-area: input;
+  height: fit-content;
   display: flex;
   flex-direction: column;
+  justify-content: baseline;
+  align-content:end;
   
   input, label{
-    align-self: center;
-    width: 80%;
+    /* outline: solid red 2px; */
+    align-self: self-start;
+    width: 50%;
+  }
+  label {
+    font-weight: bolder;
   }
 }
 
 article.text_detail_container {
   grid-area: text;
   /* outline: solid red 2px; */
+  font-weight: bolder;
+
+  span {
+    font-weight: normal;
+  }
 }
 
 article.map_info_container {
   grid-area: map;
   /* outline: solid red 2px; */
-  height: 80vh;
+  min-height: 40vh;
 }
 
 .construction {

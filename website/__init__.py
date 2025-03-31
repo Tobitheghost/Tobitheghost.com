@@ -5,7 +5,6 @@ from flask_socketio import SocketIO
 
 from .utility.secret import mail_password, mail_username, mail_port, secret_key
 from .utility import logs
-from . import errors
 
 path_links = []
 csrf = CSRFProtect()
@@ -28,11 +27,11 @@ def create_app():
     # Forms
     csrf.init_app(app)
 
-    # Errors
-    app.register_error_handler(415, errors.unsupported_media_type)
-    app.register_error_handler(418, errors.imateapot_error)
-    app.register_error_handler(451, errors.unavailable_for_legal_reasons)
-    app.register_error_handler(404, errors.page_not_found)
+    # # Errors
+    # app.register_error_handler(415, errors.unsupported_media_type)
+    # app.register_error_handler(418, errors.imateapot_error)
+    # app.register_error_handler(451, errors.unavailable_for_legal_reasons)
+    # app.register_error_handler(404, errors.page_not_found)
     
     # Email Server
     app.config["MAIL_SERVER"] = "smtp.gmail.com"
@@ -66,6 +65,9 @@ def create_app():
     from .parcel_viewer.views import parcel_viewer
     app.register_blueprint(parcel_viewer, url_prefiix='/parcel_viewer')
     csrf.exempt(parcel_viewer)
+    
+    from .errors import error
+    app.register_blueprint(error)
 
     return app
 

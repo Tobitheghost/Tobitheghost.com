@@ -16,7 +16,9 @@ block head %}
   crossorigin=""
 ></script>
 <script src="{{url_for('static', filename='parcel_viewer/javascript/parcel_viewer.js')}}"></script>
-{% endblock %} {% block content %}
+{% endblock %}
+
+{% block content %}
 <script>0</script>
 <section>
   <article class="text_input_container">
@@ -30,19 +32,20 @@ block head %}
       placeholder="Enter House Numbers"
       autocomplete="off"
     />
+
     <datalist id="parcel_entires">
       <option value="">8888</option>
     </datalist>
   </article>
 
   <article class="text_detail_container">
-    <p>Address: <span id="queryAddress">_</span></p>
-    <p>Owner Name: <span id="ownerName">_</span></p>
-    <p>Owner Name (2): <span id="ownerName2">_</span></p>
-    <p>Land Use: <span id="landUse">_</span></p>
-    <p>Effective Date: <span id="effectiveDate">_</span></p>
-    <p>Assessed Land Value: <span id="assessedLand">_</span></p>
-    <p>Assessed Improved Value: <span id="assessedImproved">_</span></p>
+    <p>Address:   <span id="queryAddress"></span></p>
+    <p>Owner Name:   <span id="ownerName"></span></p>
+    <p>Owner Name (2):   <span id="ownerName2"></span></p>
+    <p>Land Use:   <span id="landUse"></span></p>
+    <p>Effective Date:   <span id="effectiveDate"></span></p>
+    <p>Assessed Land Value:   <span id="assessedLand"></span></p>
+    <p>Assessed Improved Value:   <span id="assessedImproved"></span></p>
   </article>
 
   <article class="map_info_container">
@@ -60,7 +63,7 @@ block head %}
     event.preventDefault();
 
     const searchInput = document.getElementById("addressInput").value;
-    const searchUrl = {{ url_for('parcel_viewer.search')|tojson }};
+    const searchUrl = "/search";
     
     try {
       const response = await fetch(searchUrl, {
@@ -90,7 +93,7 @@ block head %}
 
   inputOption.addEventListener("change", async (event) => {
 
-    const resultUrl = `/results/${event.target.id}`;
+    const resultUrl = `/results/${event.target.value}`;
     console.log(event.target);
 
     try {
@@ -108,13 +111,16 @@ block head %}
 
       const result = await response.json();
       
-      document.getElementById("queryAddress").textContent = result.message.address
-      document.getElementById("ownerName").textContent = result.message.owner
-      document.getElementById("ownerName2").textContent = result.message.owner2
-      document.getElementById("landUse").textContent = result.message.land_use
-      document.getElementById("assessedLand").textContent = result.message.asLandVal
-      document.getElementById("assessedImproved").textContent = result.message.asImpVal
-      document.getElementById("effectiveDate").textContent = result.message.effDate
+      console.log(result)
+      console.log(result.address)
+
+      document.getElementById("queryAddress").innerHTML  = result.address
+      document.getElementById("ownerName").innerHTML  = result.owner
+      document.getElementById("ownerName2").innerHTML  = result.owner2
+      document.getElementById("landUse").innerHTML  = result.land_use
+      document.getElementById("assessedLand").innerHTML  = result.asLandVal
+      document.getElementById("assessedImproved").innerHTML  = result.asImpVal
+      document.getElementById("effectiveDate").innerHTML  = result.effDate
 
     } catch (error) {}
   });
