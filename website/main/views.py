@@ -1,11 +1,10 @@
 from flask import render_template, Blueprint, request, flash, session, current_app
-from flask_wtf.csrf import CSRFError
 import json
 
 from ..email import check_email
 from ..forms import Contact_Me
 
-home = Blueprint('home',__name__,url_prefix="/",template_folder="website\main\templates")
+home = Blueprint('home',__name__,url_prefix="/")
 
 @home.before_request
 def send_session():
@@ -56,11 +55,6 @@ def portfolio():
 @home.route('/styles', methods=('GET', 'POST'))
 def styles():
     return render_template("main/styles.html")
-
-#Errors
-@home.errorhandler(CSRFError)
-def handle_csrf_error(e):
-    return render_template('errors/csrf_error.html', reason=e.description, handler=True), 400
 
 #redirects
 @home.route('/TexasToms', methods=('GET', 'POST'))

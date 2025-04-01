@@ -7,15 +7,13 @@
 
 {% block content %}
 
-<main>
-    <section class="grid_cards">
-        {{menucard("Chat App", "Small Chat App made with the Flask Framework and WebSockets. If wanting to test the app alone, open a second Private Window after creating a room.", link=url_for('chat_app.index'),image=url_for('static', filename='main/images/chat_app_placeholder.png'))}}
-        {{menucard("Parcel Viewer", "A combination of the Open Street Map API, LeaFlet API, and the Fetch API used with the Flask Web Framework to create a searchable database UI for 2020 Kansas City Land Bank's realestate invetory. ", link=url_for('parcel_viewer.maps'), image=url_for('static', filename='main/images/parcel_viewer_placeholder_small.png'))}}
-        {{menucard("Javascript Counter", "A simple javascript incrimental counter.",image=url_for('static', filename='main/images/counter_placeholder.png'))}}
-        {{menucard("Pixel Art", "Work In progress", link=url_for('pixel_art.index'), image=url_for('static', filename='main/images/coming_soon_placeholder.png'))}}
-        {{menucard("A_Sourkat", "Work In progress", link="https://asourkat.com", image=url_for('static', filename='main/images/coming_soon_placeholder.png'))}}
-        {{menucard("Texas Toms", "A redesign for a local restraunts website.", link=url_for('texas_toms.index'), image=url_for('static', filename='main/images/texas_toms_placeholder.png'))}}
-    </section>
-</main>
+<section class="grid_cards">
+    {{menucard("Chat App", "Small Chat App made with the Flask Framework and WebSockets. If wanting to test the app alone, open a second Private Window after creating a room.", link=url_for('chat_app.index'),image=url_for('static', filename='main/images/chat_app_placeholder.png'))}}
+    {{menucard("Parcel Viewer", "A combination of the Open Street Map API, LeaFlet API, and the Fetch API used with the Flask Web Framework to create a searchable database UI for 2020 Kansas City Land Bank's realestate invetory. ", link=url_for('parcel_viewer.maps'), image=url_for('static', filename='main/images/parcel_viewer_placeholder_small.png'))}}
+    {{menucard("Javascript Counter", "A simple javascript incrimental counter.",image=url_for('static', filename='main/images/counter_placeholder.png'))}}
+    {{menucard("Pixel Art", "Work In progress", link=url_for('pixel_art.index'), image=url_for('static', filename='main/images/coming_soon_placeholder.png'))}}
+    {{menucard("A_Sourkat", "Work In progress", link="https://asourkat.com", image=url_for('static', filename='main/images/coming_soon_placeholder.png'))}}
+    {{menucard("Texas Toms", "A redesign for a local restraunts website.", link=url_for('texas_toms.index'), image=url_for('static', filename='main/images/texas_toms_placeholder.png'))}}
+</section>
 
 {% endblock %}

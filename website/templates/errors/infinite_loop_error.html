@@ -1,16 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinite Loop Error</title>
-</head>
-<body>
+{% extends "layout/base.html"%}
+{% block title %}Infinite Loop Error{% endblock %}
+{% block head %}
+<link rel="preload" href="{{url_for('static', filename='errors/css/errors.css')}}" as="style">
+<link rel="stylesheet" href="{{url_for('static', filename='errors/css/errors.css')}}">
+{% endblock %}
+{% block content %}
+<section>
     <h1>{{code}}</h1>
-    <h2>The problem is {{reason}} and it will be taken care of as soon as</h2>
-    <h3>The problem is {{reason}} and it will be taken care of as soon as</h3>
-    <h4>The problem is {{reason}} and it will be taken care of as soon as</h4>
-    <h5>The problem is {{reason}} and it will be taken care of as soon as</h5>
-    <h6>The problem is {{reason}} and it will be taken care of as soon as</h6>
-</body>
-</html>
+    <h2>The problem ({{reason}}) will be taken care of as soon as</h2>
+    <h3>The problem ({{reason}}) will be taken care of as soon as</h3>
+    <h4>The problem ({{reason}}) will be taken care of as soon as</h4>
+    <h5>The problem ({{reason}}) will be taken care of as soon as</h5>
+    <h6>The problem ({{reason}}) will be taken care of as soon as</h6>
+</section>
+{% endblock %}

@@ -19,6 +19,7 @@ def create_app():
     app.config['SECRET_KEY'] = secret_key
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     
+    # Logs
     logs.init_app(app)
     
     # Sockets
@@ -26,12 +27,6 @@ def create_app():
     
     # Forms
     csrf.init_app(app)
-
-    # # Errors
-    # app.register_error_handler(415, errors.unsupported_media_type)
-    # app.register_error_handler(418, errors.imateapot_error)
-    # app.register_error_handler(451, errors.unavailable_for_legal_reasons)
-    # app.register_error_handler(404, errors.page_not_found)
     
     # Email Server
     app.config["MAIL_SERVER"] = "smtp.gmail.com"
@@ -61,6 +56,12 @@ def create_app():
     
     from .texas_toms.views import texas_toms
     app.register_blueprint(texas_toms, url_prefix="/texas_toms")
+    
+    # from .utility.views import utility
+    # app.register_blueprint(utility, url_prefix="/utility")
+    
+    from .email_templates.views import email
+    app.register_blueprint(email, url_prefix="/email")
     
     from .parcel_viewer.views import parcel_viewer
     app.register_blueprint(parcel_viewer, url_prefiix='/parcel_viewer')
