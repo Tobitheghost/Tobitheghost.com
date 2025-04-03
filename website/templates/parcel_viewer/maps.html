@@ -49,9 +49,7 @@
 
 <script>
 
-  document.getElementById("addressInput").addEventListener("input", async (event) => {
-    event.preventDefault();
-
+  async function addressData() {
     try {
       const response = await fetch("/search", {
         method: 'POST',
@@ -78,10 +76,11 @@
     } catch (error) {
       console.error(error.message)
     }
-  });
+  };
 
-  document.getElementById("addressInput").addEventListener("change", async (event) => {
-
+document.getElementById("addressInput").addEventListener("input", addressData)
+  
+  async function addressChnage() {
     try {
       const response = await fetch(`/results/${event.target.value}`, {
         method: 'POST',
@@ -111,7 +110,9 @@
       map.fitBounds(polygon.getBounds());
 
     } catch (error) { }
-  });
+  };
+
+document.getElementById("addressInput").addEventListener("change", addressChnage)
 
 </script>
 
