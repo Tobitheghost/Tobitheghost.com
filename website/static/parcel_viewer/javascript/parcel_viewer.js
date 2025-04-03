@@ -1,11 +1,3 @@
-// const addressInput = document.getElementById("addressInput")
-// const ownerName = document.getElementById("ownerName")
-// const ownerName2 = document.getElementById("ownerName2")
-// const landUse = document.getElementById("landUse")
-// const effectiveDate = document.getElementById("effectiveDate")
-// const assessedLand = document.getElementById("assessedLand")
-// const assessedImproved = document.getElementById("assessedImproved")
-
 let map = L.map('map').setView([51.505, -0.09], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {

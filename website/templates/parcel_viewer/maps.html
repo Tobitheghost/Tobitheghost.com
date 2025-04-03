@@ -43,7 +43,6 @@
 
   <article class="map_info_container">
     <div id="map"></div>
-    <!-- <div id="parcel_view"></div> -->
   </article>
 </section>
 
@@ -57,16 +56,14 @@
     const searchInput = document.getElementById("addressInput").value;
 
     try {
-      const response = await fetch( "/search", {
+      const response = await fetch("/search", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify( document.getElementById("addressInput").value ),
       });
-      console.log(response)
       if (!response.ok) {
-        console.log(response);
         throw new Error('Network response was not ok');
       }
 
@@ -78,7 +75,6 @@
         addr.value = result.message[i].address;
         addr.textContent = result.message[i].address;
         addr.id = result.message[i].id;
-        console.log(addr);
         document.getElementById("parcel_entires").appendChild(addr)};
 
     } catch (error) {}
@@ -86,11 +82,8 @@
 
   document.getElementById("addressInput").addEventListener("change", async (event) => {
 
-    const resultUrl = `/results/${event.target.value}`;
-    console.log(event.target);
-
     try {
-      const response = await fetch(resultUrl, {
+      const response = await fetch(`/results/${event.target.value}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -99,15 +92,11 @@
       });
 
       if (!response.ok) {
-        console.log(response);
         throw new Error('Network response was not ok');
       }
 
       const result = await response.json();
       
-      console.log(result)
-      console.log(result.address)
-
       document.getElementById("queryAddress").innerHTML  = result.address
       document.getElementById("ownerName").innerHTML  = result.owner
       document.getElementById("ownerName2").innerHTML  = result.owner2
