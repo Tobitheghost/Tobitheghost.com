@@ -50,14 +50,12 @@
 <script src="{{url_for('static', filename='parcel_viewer/javascript/parcel_viewer.js')}}"></script>
 
 <script>
-  const dropOption = document.getElementById("parcel_entires");
-  const inputOption = document.getElementById("addressInput")
 
   document.getElementById("addressInput").addEventListener("input", async (event) => {
     event.preventDefault();
 
     const searchInput = document.getElementById("addressInput").value;
-        
+
     try {
       const response = await fetch( "/search", {
           method: 'POST',
@@ -68,6 +66,7 @@
       });
 
       if (!response.ok) {
+        console.log(response);
         throw new Error('Network response was not ok');
       }
 
@@ -79,12 +78,12 @@
         addr.textContent = result.message[i].address;
         addr.id = result.message[i].id;
         console.log(addr);
-        dropOption.appendChild(addr)};
+        document.getElementById("parcel_entires").appendChild(addr)};
 
     } catch (error) {}
   });
 
-  inputOption.addEventListener("change", async (event) => {
+  document.getElementById("addressInput").addEventListener("change", async (event) => {
 
     const resultUrl = `/results/${event.target.value}`;
     console.log(event.target);
@@ -99,6 +98,7 @@
       });
 
       if (!response.ok) {
+        console.log(response);
         throw new Error('Network response was not ok');
       }
 
