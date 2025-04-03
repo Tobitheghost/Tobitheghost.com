@@ -14,3 +14,7 @@ def send_session():
 @email.route('/', methods=('GET', 'POST'))
 def index():
     return render_template("email_templates/layouts/index.html")
+
+@email.route('/template/one', methods=('GET', 'POST'))
+def templte_one():
+    return render_template("email_templates/emails/email_base.html")

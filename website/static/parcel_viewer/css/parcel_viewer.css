@@ -22,6 +22,14 @@ article.text_input_container {
   label {
     font-weight: bolder;
   }
+
+  div {
+    display: flex;
+    span p {
+    padding-left: 10px;
+    font-size: small;
+    }
+  }
 }
 
 article.text_detail_container {
@@ -43,4 +51,8 @@ article.map_info_container {
 .construction {
   font-size: small;
   color: grey;
+}
+
+#map {
+  height: 100%;
 }

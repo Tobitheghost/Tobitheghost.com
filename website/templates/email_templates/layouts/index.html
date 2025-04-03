@@ -1,13 +1,15 @@
 {% extends "layout/base.html"%}
+{% from "macros/menu_grid_macro.html" import menucard%}
 {% block title %}Tobi's Portfolio{% endblock %}
 {% block head %}
 <link rel="stylesheet" href="{{url_for('static', filename='email_templates/css/email_templates.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='main/css/menu_grid.css')}}">
 {% endblock %}
 
 {% block content %}
 
 <section class="grid_cards">
-
+    {{menucard("Email Templates", "Email Template for general communication and learning how to make templates.",link=url_for('email.templte_one'),image=url_for('static', filename='main/images/email_thumbnail.png'))}}
 </section>
 
 {% endblock %}

@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS Parcels(
 
     def viewer(self, addr_q):
         query = self.cur.execute(
-            f'SELECT id, owner_name, owner_name2, landusecode, landusedesc, assessment_effective_date, assessed_land_value, assessed_improved_value, exempt_land_value, exempt_improved_value, full_address FROM Parcels WHERE address = "{addr_q}"'
+            f'SELECT id, owner_name, owner_name2, landusecode, landusedesc, assessment_effective_date, assessed_land_value, assessed_improved_value, exempt_land_value, exempt_improved_value, full_address,multipolygon FROM Parcels WHERE address = "{addr_q}"'
         )
         result = list(query.fetchone())
         print(result)
@@ -82,6 +82,7 @@ CREATE TABLE IF NOT EXISTS Parcels(
             "assessed_improved_value": result[7],
             "exempt_land_value": result[8],
             "exempt_improved_value": result[9],
-            "full_address": result[10]
+            "full_address": result[10],
+            "multipolygon": result[11]
         }
         return result_dict

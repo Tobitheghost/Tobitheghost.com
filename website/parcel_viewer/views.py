@@ -44,6 +44,7 @@ def results_(addressID):
         ExLandVal = result["exempt_land_value"]
         ExImpVal = result["exempt_improved_value"]
         effDate = result["assessment_effective_date"]
+        poly = result["multipolygon"]
 
     return jsonify({
         "address": address,
@@ -55,4 +56,5 @@ def results_(addressID):
         "asImpVal": asImpVal,
         "ExLandVal": ExLandVal,
         "ExImpVal": ExImpVal,
-        "effDate": effDate})
+        "effDate": effDate,
+        "poly": poly})
