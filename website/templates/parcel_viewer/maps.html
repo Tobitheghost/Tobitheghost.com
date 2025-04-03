@@ -57,10 +57,9 @@
     event.preventDefault();
 
     const searchInput = document.getElementById("addressInput").value;
-    const searchUrl = "/search";
-    
+        
     try {
-      const response = await fetch(searchUrl, {
+      const response = await fetch( "/search", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

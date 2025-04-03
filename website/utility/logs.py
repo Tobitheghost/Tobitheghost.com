@@ -29,7 +29,7 @@ def init_app(app):
                 "class": "logging.FileHandler",
                 "filename": "website\\utility\\site.log",
                 "formatter": "json",
-                "level": "DEBUG",
+                "level": "INFO",
                 },
             "size-rotate": {
                 "class": "logging.handlers.RotatingFileHandler",
@@ -37,14 +37,14 @@ def init_app(app):
                 "maxBytes": 1000000,
                 "backupCount": 5,
                 "formatter": "json",
-                "level": "DEBUG"
+                "level": "INFO"
                 },
         },
         "loggers": {
             "console": {"level": "DEBUG", "handlers": ["console"]},
-            "file": {"level": "DEBUG", "handlers": ["file"]},
+            "file": {"level": "INFO", "handlers": ["file"]},
             },
         "root": {
-            "level": "DEBUG" ,"handlers": ["console", "file"] 
+            "level": "INFO" ,"handlers": ["console", "file"] 
         }
     })
