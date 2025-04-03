@@ -62,16 +62,16 @@
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify( searchInput ),
+          body: JSON.stringify( document.getElementById("addressInput").value ),
       });
-
+      console.log(response)
       if (!response.ok) {
         console.log(response);
         throw new Error('Network response was not ok');
       }
 
       const result = await response.json();
-      console.log(result)
+      
 
       for (let i = 0; i < result.message.length; i++) {
         let addr = document.createElement('option');
