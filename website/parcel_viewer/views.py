@@ -16,6 +16,7 @@ def maps():
 def search():
     try:
         data = request.get_json()
+        logging.warn(data)
         if not data:
             return jsonify({'error': 'Invalid input'}), 400
 

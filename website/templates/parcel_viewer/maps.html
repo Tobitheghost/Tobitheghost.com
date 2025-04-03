@@ -1,11 +1,13 @@
-{% extends "layout/base.html"%} 
+{% extends "layout/base.html"%}
 
 {% block title %}Parcel Viewer{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{{url_for('static', filename='parcel_viewer/css/parcel_viewer.css')}}"/>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<link rel="stylesheet" href="{{url_for('static', filename='parcel_viewer/css/parcel_viewer.css')}}" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
 {% endblock %}
 
@@ -17,14 +19,11 @@
 
     <label for="address_input">Search By Address:</label>
     <div>
-      <input
-        list="parcel_entires"
-        id="addressInput"
-        name="address_input"
-        placeholder="Enter House Numbers"
-        autocomplete="off"
-      />
-      <span><p> *Select address then press enter</p></span>
+      <input list="parcel_entires" id="addressInput" name="address_input" placeholder="Enter House Numbers"
+        autocomplete="off" />
+      <span>
+        <p> *Select address then press enter</p>
+      </span>
     </div>
     <datalist id="parcel_entires">
       <option value="">8888</option>
@@ -32,13 +31,13 @@
   </article>
 
   <article class="text_detail_container">
-    <p>Address:   <span id="queryAddress"></span></p>
-    <p>Owner Name:   <span id="ownerName"></span></p>
-    <p>Owner Name (2):   <span id="ownerName2"></span></p>
-    <p>Land Use:   <span id="landUse"></span></p>
-    <p>Effective Date:   <span id="effectiveDate"></span></p>
-    <p>Assessed Land Value:   <span id="assessedLand"></span></p>
-    <p>Assessed Improved Value:   <span id="assessedImproved"></span></p>
+    <p>Address: <span id="queryAddress"></span></p>
+    <p>Owner Name: <span id="ownerName"></span></p>
+    <p>Owner Name (2): <span id="ownerName2"></span></p>
+    <p>Land Use: <span id="landUse"></span></p>
+    <p>Effective Date: <span id="effectiveDate"></span></p>
+    <p>Assessed Land Value: <span id="assessedLand"></span></p>
+    <p>Assessed Improved Value: <span id="assessedImproved"></span></p>
   </article>
 
   <article class="map_info_container">
@@ -53,17 +52,15 @@
   document.getElementById("addressInput").addEventListener("input", async (event) => {
     event.preventDefault();
 
-    console.log(document.getElementById("addressInput").value)
-
     try {
       const response = await fetch("/search", {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify( document.getElementById("addressInput").value ),
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(document.getElementById("addressInput").value)
       });
-      console.log(response)
+
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -75,20 +72,23 @@
         addr.value = result.message[i].address;
         addr.textContent = result.message[i].address;
         addr.id = result.message[i].id;
-        document.getElementById("parcel_entires").appendChild(addr)};
+        document.getElementById("parcel_entires").appendChild(addr)
+      };
 
-    } catch (error) {}
+    } catch (error) {
+      console.error(error.message)
+    }
   });
 
   document.getElementById("addressInput").addEventListener("change", async (event) => {
 
     try {
       const response = await fetch(`/results/${event.target.value}`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify( event.target.value ),
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(event.target.value),
       });
 
       if (!response.ok) {
@@ -96,21 +96,21 @@
       }
 
       const result = await response.json();
-      
-      document.getElementById("queryAddress").innerHTML  = result.address
-      document.getElementById("ownerName").innerHTML  = result.owner
-      document.getElementById("ownerName2").innerHTML  = result.owner2
-      document.getElementById("landUse").innerHTML  = result.land_use
-      document.getElementById("assessedLand").innerHTML  = result.asLandVal
-      document.getElementById("assessedImproved").innerHTML  = result.asImpVal
-      document.getElementById("effectiveDate").innerHTML  = result.effDate
 
-      let latlngs = JSON.parse((result.poly).replace(/'/g,'\"'))
-      let polygon = L.polygon(latlngs, {color: 'red'}).addTo(map);
-      
+      document.getElementById("queryAddress").innerHTML = result.address
+      document.getElementById("ownerName").innerHTML = result.owner
+      document.getElementById("ownerName2").innerHTML = result.owner2
+      document.getElementById("landUse").innerHTML = result.land_use
+      document.getElementById("assessedLand").innerHTML = result.asLandVal
+      document.getElementById("assessedImproved").innerHTML = result.asImpVal
+      document.getElementById("effectiveDate").innerHTML = result.effDate
+
+      let latlngs = JSON.parse((result.poly).replace(/'/g, '\"'))
+      let polygon = L.polygon(latlngs, { color: 'red' }).addTo(map);
+
       map.fitBounds(polygon.getBounds());
 
-    } catch (error) {}
+    } catch (error) { }
   });
 
 </script>
