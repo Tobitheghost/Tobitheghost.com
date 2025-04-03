@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS Parcels(
         query = self.cur.execute(
             f'SELECT id, multipolygon, address FROM Parcels WHERE address LIKE "{addr_q}%" LIMIT 50'
         )
-        result = query.fetchall()
+        result = query.fetchall()[0:6]
         result_dict = [
             {"id": name[0], "multipolygon": name[1], "address": name[2]}
             for name in result
