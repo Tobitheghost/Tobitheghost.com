@@ -53,7 +53,7 @@
   document.getElementById("addressInput").addEventListener("input", async (event) => {
     event.preventDefault();
 
-    const searchInput = document.getElementById("addressInput").value;
+    console.log(document.getElementById("addressInput").value)
 
     try {
       const response = await fetch("/search", {
@@ -63,12 +63,12 @@
           },
           body: JSON.stringify( document.getElementById("addressInput").value ),
       });
+      console.log(response)
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
 
       const result = await response.json();
-      
 
       for (let i = 0; i < result.message.length; i++) {
         let addr = document.createElement('option');
