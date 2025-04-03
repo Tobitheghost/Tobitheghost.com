@@ -71,6 +71,7 @@
       }
 
       const result = await response.json();
+      console.log(result)
 
       for (let i = 0; i < result.message.length; i++) {
         let addr = document.createElement('option');
