@@ -2,6 +2,7 @@ from flask import Flask
 from flask_wtf.csrf import CSRFProtect
 from flask_mail import Mail
 from flask_socketio import SocketIO
+from flask_cors import CORS
 
 from .utility.secret import mail_password, mail_username, mail_port, secret_key
 from .utility import logs
@@ -10,6 +11,7 @@ path_links = []
 csrf = CSRFProtect()
 mail = Mail()
 socketio = SocketIO()
+cors = CORS()
 
 def create_app():
     
@@ -27,6 +29,9 @@ def create_app():
     
     # Forms
     csrf.init_app(app)
+    
+    # Cors
+    cors.init_app(app)
     
     # Email Server
     app.config["MAIL_SERVER"] = "smtp.gmail.com"
