@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="{{url_for('static', filename='parcel_viewer/css/parcel_viewer.css')}}" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
 {% endblock %}
 
 {% block content %}
@@ -15,8 +16,8 @@
 
     <label for="address_input">Search By Address:</label>
     <div>
-      <input list="parcel_entires" id="addressInput" name="address_input" placeholder="Enter House Numbers"
-        autocomplete="off" />
+      <input type="text" list="parcel_entires" id="addressInput" name="address_input" placeholder="Enter House Numbers"
+        autocomplete="off" hx-get="/search" hx-trigger="keyup changed delay:500ms" hx-target="#parcel_entires"/>
       <span>
         <p> *Select address then press enter</p>
       </span>
@@ -26,7 +27,7 @@
     </datalist>
   </article>
 
-  <article class="text_detail_container">
+  <article class="text_detail_container" id="text_detail_container">
     <p>Address: <span id="queryAddress"></span></p>
     <p>Owner Name: <span id="ownerName"></span></p>
     <p>Owner Name (2): <span id="ownerName2"></span></p>
@@ -53,39 +54,9 @@
       let latlngs = [['39.277105911797', '-94.573555314885'], ['39.277129788807', '-94.573314917428'], ['39.277042649122', '-94.573300520356'], ['39.277042188595', '-94.573305170383'], ['39.277018793306', '-94.573540916807'], ['39.277105911797', '-94.573555314885']]
       let polygon = L.polygon(latlngs, {color: 'red'}).addTo(map);
       map.fitBounds(polygon.getBounds());
-
-  async function addressData() {
-    try {
-      const response = await fetch("/search", {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(document.getElementById("addressInput").value)
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const result = await response.json();
-
-      for (let i = 0; i < result.message.length; i++) {
-        let addr = document.createElement('option');
-        addr.value = result.message[i].address;
-        addr.textContent = result.message[i].address;
-        addr.id = result.message[i].id;
-        document.getElementById("parcel_entires").appendChild(addr)
-      };
-
-    } catch (error) {
-      console.error(error.message)
-    }
-  };
   
   async function addressChnage() {
     try {
-      console.log(`test ${event.target.value}`)
       const response = await fetch(`/results/${event.target.value}`, {
         method: 'POST',
         headers: {
@@ -116,7 +87,14 @@
     } catch (error) { }
   };
 
-document.getElementById("addressInput").addEventListener("input", addressData)
+function updateMap(polyString) {
+  let latlngs = JSON.parse((polyString).replace(/'/g,'\"'))
+  let polygon = L.polygon(latlngs, {color: 'red'}).addTo(map);
+  
+  map.fitBounds(polygon.getBounds());
+}
+
+// document.getElementById("addressInput").addEventListener("input", addressData)
 document.getElementById("addressInput").addEventListener("change", addressChnage)
 
 </script>

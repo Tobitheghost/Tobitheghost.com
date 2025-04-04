@@ -1,7 +1,7 @@
 {% for data in results %}
     
-    <button type="submit" class="btn_result" name="btn_result" id='{{data.id}}' value='{{data.multipolygon}}' onclick=updateMap({{data.id}}) hx-get="/results/{{data.id}}" hx-target="#parcel_view">
+    <<option name="option_result" id='{{data.id}}' value='{{data.address}}' onclick=updateMap({{data.multipolygon}}) hx-trigger="keyup" hx-get="/results/{{data.address}}" hx-target="#text_detail_container">
         {{data.address}}
-    </button><br>
+    </option> 
 
 {% endfor %}

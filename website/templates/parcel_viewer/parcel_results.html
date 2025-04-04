@@ -1,27 +1,9 @@
-<div>
-  <p class="address">{{address}}</p>
-  <br />
-  <p class="ownerName labl">Owners Name:&nbsp;</p>
-  <p class="ownerName ent">{{owner}}</p>
-  <p class="ownerName2 labl"></p>
-  <p class="ownerName2 ent">&nbsp;{{owner2}}</p>
-  <br />
-  <p class="landUse labl">Land Use:&nbsp;</p>
-  <p class="landUse ent">( {{land_use}} ) {{land_desc}}</p>
-  <br />
-  <p class="effDate labl">Effective as of:&nbsp;&nbsp;</p>
-  <p class="effDate ent">{{effDate}}</p>
-  <br />
-  <p class="asLandVal labl">Assessed Land Value:&nbsp;&nbsp;</p>
-  <p class="asLandVal ent">{{asLandVal}}</p>
-  <br />
-  <p class="asImpVal labl">Assessed Improved Value:&nbsp;&nbsp;</p>
-  <p class="asImpVal ent">{{asImpVal}}</p>
-  <br />
-  <p class="exLandVal labl">Exempt Land Value:&nbsp;&nbsp;</p>
-  <p class="exLandVal ent">{{ExLandVal}}</p>
-  <br />
-  <p class="exImpVal labl">Exempt Improved Value:&nbsp;&nbsp;</p>
-  <p class="exImpVal ent">{{ExImpVal}}</p>
-  <br />
-</div>
+{% for entry in data %}
+  <p>Address: <span id="queryAddress"></span></p>
+  <p>Owner Name: <span id="ownerName"></span></p>
+  <p>Owner Name (2): <span id="ownerName2"></span></p>
+  <p>Land Use: <span id="landUse"></span></p>
+  <p>Effective Date: <span id="effectiveDate"></span></p>
+  <p>Assessed Land Value: <span id="assessedLand"></span></p>
+  <p>Assessed Improved Value: <span id="assessedImproved"></span></p>
+{% endfor %}
