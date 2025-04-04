@@ -27,6 +27,7 @@ def search():
 
         return jsonify({'message': response_message}), 200  
     except Exception as e:
+        logging.warn(f"error: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
 @parcel_viewer.route("/results/<addressID>", methods=['POST'])

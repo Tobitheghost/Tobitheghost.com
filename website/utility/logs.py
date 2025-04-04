@@ -41,7 +41,7 @@ def init_app(app):
                 },
         },
         "loggers": {
-            "console": {"level": "DEBUG", "handlers": ["console"]},
+            "console": {"level": "INFO", "handlers": ["console"]},
             "file": {"level": "INFO", "handlers": ["file"]},
             },
         "root": {
