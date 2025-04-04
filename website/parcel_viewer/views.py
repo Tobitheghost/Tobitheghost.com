@@ -20,6 +20,7 @@ def search():
         data = request.get_json()
         logging.warn(data)
         if not data:
+            logging.warn(f"error: Invalid input")
             return jsonify({'error': 'Invalid input'}), 400
 
         q_data = Parcel()

@@ -82,11 +82,10 @@
       console.error(error.message)
     }
   };
-
-document.getElementById("addressInput").addEventListener("input", addressData)
   
   async function addressChnage() {
     try {
+      console.log(`test ${event.target.value}`)
       const response = await fetch(`/results/${event.target.value}`, {
         method: 'POST',
         headers: {
@@ -117,6 +116,7 @@ document.getElementById("addressInput").addEventListener("input", addressData)
     } catch (error) { }
   };
 
+document.getElementById("addressInput").addEventListener("input", addressData)
 document.getElementById("addressInput").addEventListener("change", addressChnage)
 
 </script>
