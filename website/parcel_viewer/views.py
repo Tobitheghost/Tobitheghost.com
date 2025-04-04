@@ -1,4 +1,5 @@
 from flask import render_template, Blueprint, request, session, current_app, jsonify
+from flask_cors import cross_origin
 import logging
 
 from .parcel_data import Parcel
@@ -13,6 +14,7 @@ def maps():
     return render_template("parcel_viewer/maps.html")
 
 @parcel_viewer.route("/search", methods=['POST'])
+@cross_origin()
 def search():
     try:
         data = request.get_json()
