@@ -1,5 +1,5 @@
 from flask import render_template, Blueprint, request, session, current_app
-import logging
+import logging, os, json
 
 logger = logging.getLogger('views')
 pixel_art = Blueprint('pixel_art',__name__,template_folder="templates",static_folder="static")
@@ -13,4 +13,7 @@ def send_session():
 
 @pixel_art.route('/', methods=('GET', 'POST'))
 def index():
-    return render_template("pixel_art/pixel_art.html")
+    with open(os.path.abspath(os.path.join(".","website","pixel_art","images.json"))) as file:
+        data = json.load(file)
+        
+    return render_template("pixel_art/pixel_art.html", imgs=data["images"])

@@ -1,0 +1,70 @@
+main {
+    overflow-y: hidden;
+}
+
+.json_form {
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 1110px;
+    position: fixed;
+    display: flex;
+    background-color: rgb(255, 255, 255, .5);
+    outline: solid yellow 2px;
+    padding: 20px 0;
+    z-index: 1;
+}
+.json_input {
+    width: 50%;
+    outline: solid green 2px;
+}
+
+.json_input div {
+    display: grid;
+    padding: 5px 0;
+}
+
+.json_input label {
+    grid-column: 1;
+    width: 50px;
+}
+
+.json_input input {
+    grid-column: 2;
+    width: 360px;
+}
+
+.json_entry {
+    outline: solid blue 2px;
+    width: 50%;
+}
+
+.input_entry {
+    display: flex;
+    flex-direction: column;
+}
+
+.input_entry input {
+    height: 20rem;
+}
+
+.img_info {
+    outline: solid red 2px;
+    max-width: 1110px;
+    width: 100%;
+    columns: 350px;
+    padding: 500px 0 0 0;
+    transition: .5s;
+    
+    article {
+        outline: solid black 2px;
+        display: flex;
+        flex-direction: column;
+        width: 350px;
+        margin: 0 12px 12px 0;
+
+        img {
+            width: 100%;
+            image-rendering: pixelated;
+        }
+    }
+}

@@ -1,0 +1,81 @@
+{% extends "layout/base.html"%}
+{% block title %}Pixel Art Showcase{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='utility/css/pixelart_utility.css')}}">
+{% endblock %}
+
+{% block content %}
+<section class="json_form">
+    <article class="json_input">
+        <div class="input_name">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div class="input_title">
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title">
+        </div>
+        <div class="input_thumbnail">
+            <label for="thumbnail">Thumbnail:</label>
+            <input type="text" name="thumbnail" id="thumbnail">
+        </div>
+        <div class="input_path">
+            <label for="path">Path:</label>
+            <input type="text" name="path" id="path">
+        </div>
+        <div class="input_instagram">
+            <label for="instagram">Instagram:</label>
+            <input type="text" name="instagram" id="instagram">
+        </div>
+        <div class="input_twitter">
+            <label for="twitter">Twitter:</label>
+            <input type="text" name="twitter" id="twitter">
+        </div>
+        <div class="input_mastadon">
+            <label for="mastadon">Mastadon:</label>
+            <input type="text" name="mastadon" id="mastadon">
+        </div>
+        <div class="input_linkedin">
+            <label for="linkedin">Linkedin:</label>
+            <input type="text" name="linkedin" id="linkedin">
+        </div>
+        <div class="input_submit">
+            <button onclick="generateJson()">Generate</button>
+        </div>
+    </article>
+    <article class="json_entry">
+        <div class="input_entry">
+            <label for="json_entry">Copy the Json:</label>
+            <textarea name="json_entry" id="json_entry" rows="20" readonly></textarea>
+        </div>
+    </article>
+</section>
+
+<section class="img_info">
+    {% for img in imgs %}
+    <article>
+        <img src="{{url_for('static', filename='pixel_art/images/gallery/' + img)}}"/>
+        <h2>{{img}}</h2>
+    </article>
+    {% endfor %}
+</section>
+
+<script>
+    let inputName = document.getElementById("name")
+    let inputTitle = document.getElementById("title")
+    let inputThumbnail = document.getElementById("thumbnail")
+    let inputPath = document.getElementById("path")
+    let inputInstagram = document.getElementById("instagram")
+    let inputTwitter = document.getElementById("twitter")
+    let inputMastadon = document.getElementById("mastadon")
+    let inputLinkedin = document.getElementById("linkedin")
+    let jsonEntry = document.getElementById("json_entry")
+
+    function generateJson() {
+        console.log(inputName)
+        genEntry = `{\n"name": "${inputName.value}",\n"title": "${inputTitle.value}",\n"thumbnail": "${inputThumbnail.value}",\n"path": [${inputPath.value}],\n"instagram": "${inputInstagram.value}",\n"twitter": "${inputTwitter.value}",\n"mastadon": "${inputMastadon.value}",\n"linkedin": "${inputLinkedin.value}"\n}`
+        
+        jsonEntry.value = genEntry
+    }
+</script>
+{% endblock %}
