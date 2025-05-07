@@ -6,7 +6,6 @@ section {
 } 
 
 article.text_input_container {
-  /* outline: solid red 2px; */
   grid-area: input;
   height: fit-content;
   display: flex;
@@ -15,7 +14,6 @@ article.text_input_container {
   align-content:end;
   
   input, label{
-    /* outline: solid red 2px; */
     align-self: self-start;
     width: 50%;
   }
@@ -34,7 +32,6 @@ article.text_input_container {
 
 article.text_detail_container {
   grid-area: text;
-  /* outline: solid red 2px; */
   font-weight: bolder;
 
   span {
@@ -44,7 +41,6 @@ article.text_detail_container {
 
 article.map_info_container {
   grid-area: map;
-  /* outline: solid red 2px; */
   min-height: 40vh;
 }
 

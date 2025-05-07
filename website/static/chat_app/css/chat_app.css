@@ -1,10 +1,30 @@
-/* chat_app.html */
+h3 {
+    font-weight: bolder;
+}
 
-section {
+.chat_title {
     display: flex;
-    height: 40vh;
-    align-items: center;
+    padding-bottom: 0px;
+    height: auto;
+    grid-column: 1/-1;
+}
+
+.chat-app, .info {
+    display: flex;
+    align-items: baseline;
     flex-direction: column;
+    width: 100%;
+    padding-top: 0px;
+}
+
+.chat-app {
+    grid-column: 1/7;
+    grid-row: 2;
+}
+
+.info {
+    grid-column: 7/-1;
+    grid-row: 2;
 }
 
 form {
@@ -14,7 +34,16 @@ form {
     gap: 10px;
 }
 
-.join {
+.chat-app .name {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    input {
+        width: 85%;
+    }
+}
+
+.chat-app .join {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,55 +52,76 @@ form {
         height: 27px;
     } button {
         width: auto;
-        padding: 0px 15px;
+        padding: 0px 15px 0px;
     }
 }
 
-.create{
+.chat-app .create{
     width: 100%;
 }
 
-/* room.html */
-.message-box {
-    border: black 2px solid;
-    border-radius: 10px;
-    background-color: whitesmoke;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    width: 80vw;
-    align-items: stretch;
+.about {
+    padding-bottom: 24px;
 }
 
-.messages {
-    overflow-y: scroll;
-    flex: auto;
-    width: 100%;
+@media (max-width: 1110px) and (min-width: 730px) {
+
+    main {
+        display: grid;
+        column-gap: 30px;
+        grid-template-columns: repeat(8, 65px);
+        margin: 0 auto;
+        max-width: 730px;
+    }
+
+    .chat_title {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 0px;
+        height: auto;
+        grid-column: 1/-1;
+    }
+
+    .chat-app {
+        align-items: center;
+        grid-row: 2;
+        grid-column: 1/-1;
+    }
+    
+    .info {
+        grid-row: 3;
+        grid-column: 1/-1;
+    }
+        
 }
 
-.inputs {
-    align-items: baseline;
-    padding: 10px;
-    display: flex;
+@media (max-width: 730px) {
+
+    main {
+        display: grid;
+        column-gap: 30px;
+        grid-template-columns: repeat(4, 65px);
+        margin: 0 auto;
+        max-width: 350px;
+    }
+
+    .chat_title {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 0px;
+        height: auto;
+        grid-column: 1/-1;
+    }
+
+    .chat-app {
+        align-items: center;
+        grid-row: 2;
+        grid-column: 1/-1;
+    }
+    
+    .info {
+        grid-row: 3;
+        grid-column: 1/-1;
+    }
 }
 
-h2 {
-    text-align: center;
-}
-
-#message {
-    flex: 1;
-}
-
-.text {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10px 5px 10px;
-}
-
-.muted {
-    font-size: 10px;
-    color: darkgray;
-}

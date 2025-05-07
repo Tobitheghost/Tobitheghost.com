@@ -10,10 +10,16 @@
 {% endblock %}
 
 {% block content %}
-<section class="chat-app">
+<section class="chat_title">
+    <article>
+        <h1>Live Chat</h1>
+    </article>
+</section>
+
+<section class="chat-app ">
     <h3>Enter Chat Room</h3>
     <form method="post">
-        <div>
+        <div class="name">
             <label>Name:</label>
             <input type="text" placeholder="Pick a Name!" name="name" value="{{name}}">
         </div>
@@ -28,5 +34,23 @@
         </ul>
         {% endif %}
     </form>
+</section>
+
+<section class="info">
+    <div class="about">
+        <h3>About the App</h3>
+        <p>This is a combination of a couple of tutorials and personal knowledge. I used this to learn about the WebSockets API, the Fetch API and how those work with a 
+            Python (Flask) backend. For now there isnt a database on the backend and the chats are saved in memory but that will soon change.</p>
+    </div>
+    <div class="howto">
+        <h3>How to Use</h3>
+        <p>Enter a name in the top option. It doesnt have to be unique, its just used to distinguish you from anyone else in the same room. If you dont have a 
+            'Room Code', just click 'Create a Room' and you will be taken to a chat room with just you. There will be a room code at the top of the screen, if 
+            you give that code to someone else, after picking their own name, they will enter it into the 'Room Code' section and click 'Join a Room'.
+            <br><br>If you are alone and just want to test 
+            things out, open a second window in Incognito and enter in the room code there, you will be able to join your own room with another name and chat with 
+            yourself.</p>
+    </div>
+
 </section>
     {% endblock %}
