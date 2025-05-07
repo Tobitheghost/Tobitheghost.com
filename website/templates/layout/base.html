@@ -29,7 +29,7 @@
 
             <div class="nav_links">
                 <ul>
-                    <li class="asourkat_nav">{% block sourkat_link %}<a href="https://asourkat.com" target="_blank" rel="noopener noreferrer"><span>Sour Kat</span></a>{% endblock %}</li>
+                    <!-- <li class="asourkat_nav">{% block sourkat_link %}<a href="https://asourkat.com" target="_blank" rel="noopener noreferrer"><span>Sour Kat</span></a>{% endblock %}</li> -->
                     <li class="home_nav">{% block portfolio_link %}<a href="{{url_for('home.portfolio')}}"><span>Portfolio</span></a>{% endblock %}</li>
                     <li class="about_me_nav">{% block aboutme_link %}<a href="{{url_for('home.homepage')}}#about_me"><span>About Me</span></a>{% endblock %}</li>
                     <li class="contact_me_nav">{% block contactme_link %}<a href="{{url_for('home.homepage')}}#contact_me"><button>Contact Me</button></a>{% endblock %}</li>
@@ -58,7 +58,7 @@
                 <li class="filled"><p><a href="{{url_for('chat_app.index')}}">Chat App</a></h4></li>
                 <li class="filled"><p><a href="{{url_for('texas_toms.index')}}">Texas Toms</a></h4></li>
                 <li class="filled"><p><a href="{{url_for('parcel_viewer.maps')}}">Parcel Viewer</a></h4></li>
-                <li></li>
+                <li class="filled"><p><a href="{{url_for('email.index')}}">Email Templates</a></h4></li>
                 <li></li>
                 <li></li>
             </ul>

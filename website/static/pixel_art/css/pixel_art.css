@@ -171,3 +171,32 @@ main {
         text-align: center;
     }
 }
+
+@media (max-width: 1110px) and (min-width: 730px) {
+
+    main {
+        display: grid;
+        column-gap: 30px;
+        grid-template-columns: repeat(8, 65px);
+        margin: 0 auto;
+    }
+
+    .cards_section {
+        max-width: 730px;
+    }
+        
+}
+
+@media (max-width: 730px) {
+
+    main {
+        display: grid;
+        column-gap: 30px;
+        grid-template-columns: repeat(4, 65px);
+        margin: 0 auto;
+    }
+
+    .cards_section {
+        max-width: 350px;
+    }
+}

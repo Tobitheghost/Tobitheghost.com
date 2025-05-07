@@ -8,6 +8,10 @@ main {
     margin: 0 auto;
 }
 
+.portolio_title {
+    padding-bottom: 0px;
+}
+
 @media (max-width: 1110px) and (min-width: 730px) {
     main {
         max-width: 730px;
@@ -72,27 +76,28 @@ section.grid_cards{
 
 .card {
     display: grid;
+    height: fit-content;
     grid-template-columns: inherit;
     grid-column: span 4;
     grid-template-rows: auto 40%;
-    border: 24px solid rgba(139, 0, 0, 0.6);
-    height: fit-content;
-    align-self: end;
-
-    .card_heading {
-        display: flex;
-        grid-column: inherit;
-        grid-row: 1 / 2;
-        width: 300px;
-        height: 384px;
-    }
+    border-radius: 10px;
+    border: 5px solid darkred;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
 
     .card_heading_grid {
         display: flex;
         grid-column: inherit;
         grid-row: 1 / 2;
-        width: 300px;
+        justify-content: center;
+        width: 340px;
         height: 320px;
+
+        img {
+            border-radius: 5px;
+            height: fit-content;
+            width: fit-content;
+        }
     }
 
     .card_text {
@@ -102,7 +107,20 @@ section.grid_cards{
         grid-row: 2 / 3;
         padding: 0 24px 0 24px;
         height: 260px;
-        width: 302px;
-        border-top: 24px solid rgba(139, 0, 0, 0.6);
+        width: 340px;
+
+        .technology_buttons {
+            display: flex;
+            flex-wrap: wrap;
+            padding-top: 12px;
+
+            .tech_btn {
+                background-color: darkred;
+                color: #fff;
+                padding: 6px;
+                margin: 0 0 6px 3px;
+                border-radius: 10px;
+            }
+        }
     }
 }
