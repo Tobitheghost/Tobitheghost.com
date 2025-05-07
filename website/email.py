@@ -12,7 +12,7 @@ def check_email(name, textarea, email, test):
         if validate_email(email, check_deliverability=True):
             print("validating...")
             if int(test) == 6:
-                print("mathing...")
+                print("matching...")
                 incoming_msg = Message(
                     subject=f"Contact Webpage:: {name} at {email}",
                     body=textarea,
@@ -29,17 +29,17 @@ def check_email(name, textarea, email, test):
                 try:
                     mail.send(incoming_msg)
                     mail.send(outgoing_msg)
-                    response = "Email Sent!", "succsess"
+                    response = "Email Sent!", "success"
                 except SMTPAuthenticationError:
                     response = "SMTP Server Error: Please send an email through your personal inbox while Tobi fixes this", "error"
                     print(SMTPAuthenticationError)
-                    resonse_log = {
+                    response_log = {
                         "response": [response, "535, b'5.7.8 Username and Password not accepted. For more information, go to 5.7.8 \
                         https://support.google.com/mail/?p=BadCredentials b17-20020a0c9b11000000b00690494d2766sm4167396qve.96 - gsmtp"],
                         "name": name,
                         "email_msg": textarea,
                         "email": email,}
-                    current_app.logger.error(resonse_log)
+                    current_app.logger.error(response_log)
                     # Log (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  
                     # https://support.google.com/mail/?p=BadCredentials b17-20020a0c9b11000000b00690494d2766sm4167396qve.96 - gsmtp')
 

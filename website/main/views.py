@@ -27,20 +27,20 @@ def homepage():
     if request.method == "POST":
         if form.validate_on_submit():
             response = check_email(form.name.data, form.textarea.data, form.email.data, form.test.data)
-            resonse_log = {
+            response_log = {
             "response": response,
             "name": form.name.data,
             "email_msg": form.textarea.data,
             "email": form.email.data,}
-            current_app.logger.debug(resonse_log)
+            current_app.logger.debug(response_log)
         else:
             response = "There seems to be an error with your connection" ,"error"
-            resonse_log = {
+            response_log = {
             "response": response,
             "name": form.name.data,
             "email_msg": form.textarea.data,
             "email": form.email.data,}
-            current_app.logger.error(resonse_log)
+            current_app.logger.error(response_log)
         session["name"] = form.name.data
         session["email"] = form.email.data
         flash(response)
