@@ -1,0 +1,28 @@
+main {
+    padding: 180px;
+}
+
+.email_gallery {
+    max-width: 1110px;
+    columns: 350px;
+    padding: 0;
+    transition: .5s;
+}
+
+.email_card {
+    max-width: 300px;
+    justify-items: auto;
+    filter: drop-shadow(10px 10px 10px rgb(0, 0, 0, .25));
+}
+.email_card a {
+    display:inline-flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: black;
+}
+.email_card img {
+    width: 100%;
+    padding: 12px 0;
+    
+}
+

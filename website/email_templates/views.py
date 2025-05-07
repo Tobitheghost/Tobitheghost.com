@@ -15,6 +15,10 @@ def send_session():
 def index():
     return render_template("email_templates/layouts/index.html")
 
-@email.route('/template/one', methods=('GET', 'POST'))
+@email.route('/template/tobi', methods=('GET', 'POST'))
 def templte_one():
     return render_template("email_templates/emails/email_base.html")
+
+@email.route('/template/naruto_x_tmnt', methods=('GET', 'POST'))
+def templte_two():
+    return render_template("email_templates/emails/naruto_x_tmnt_abandoned_cart.html")

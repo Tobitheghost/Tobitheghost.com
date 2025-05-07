@@ -1,15 +1,25 @@
 {% extends "layout/base.html"%}
-{% from "macros/menu_grid_macro.html" import menucard%}
 {% block title %}Tobi's Portfolio{% endblock %}
 {% block head %}
 <link rel="stylesheet" href="{{url_for('static', filename='email_templates/css/email_templates.css')}}">
-<link rel="stylesheet" href="{{url_for('static', filename='main/css/menu_grid.css')}}">
 {% endblock %}
 
 {% block content %}
 
-<section class="grid_cards">
-    {{menucard("Email Templates", "Email Template for general communication and learning how to make templates.",link=url_for('email.templte_one'),image=url_for('static', filename='main/images/email_thumbnail.png'))}}
+<section class="email_gallery">
+    <article class="email_card">
+        <a href= "{{url_for('email.templte_two')}}">
+            <img src="{{url_for('static', filename='email_templates/images/naruto_x_tmnt/Naruto x TMNT Abandoned Cart Email.PNG')}}" alt="Naruto x TMNT Abandoned Cart Email">
+            Naruto x TMNT Abandoned Cart Email
+        </a>
+    </article>
+
+    <article class="email_card">
+        <a href= "{{url_for('email.templte_one')}}">
+            <img src="{{url_for('static', filename='email_templates/images/tobi_candice/email_thumbnail.png')}}" alt="Tobi Email Template">
+            Tobi Email
+        </a>
+    </article>
 </section>
 
 {% endblock %}
