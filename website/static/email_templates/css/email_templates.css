@@ -4,6 +4,7 @@ main {
 
 .email_gallery {
     max-width: 1110px;
+    align-items: center;
     columns: 350px;
     padding: 0;
     transition: .5s;
@@ -35,6 +36,7 @@ main {
         column-gap: 30px;
         grid-template-columns: repeat(8, 65px);
         margin: 0 auto;
+        padding: 100px;
     }
 
     .email_gallery {
@@ -50,9 +52,13 @@ main {
         column-gap: 30px;
         grid-template-columns: repeat(4, 65px);
         margin: 0 auto;
+        padding: 100px;
     }
 
     .email_gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         max-width: 350px;
     }
 }

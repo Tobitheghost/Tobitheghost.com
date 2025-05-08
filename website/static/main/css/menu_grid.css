@@ -8,7 +8,7 @@ main {
     margin: 0 auto;
 }
 
-.portolio_title {
+.portfolio_title {
     padding-bottom: 0px;
 }
 
@@ -25,6 +25,12 @@ main {
 }
 
 @media (max-width: 730px){
+
+    h1 {
+        line-height: 100%;
+        margin-bottom: 0px;
+    }
+
     main {
         max-width: 350px;
         display: flex;
@@ -33,6 +39,14 @@ main {
         grid-gap: 30px;
         grid-template-columns: repeat(4, 65px);
         margin: 0 auto;
+    }
+
+    section {
+        padding: 24px 0 ;
+    }
+
+    .portfolio_title article {
+        text-align: center;
     }
 }
 

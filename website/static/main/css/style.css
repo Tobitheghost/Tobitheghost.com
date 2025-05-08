@@ -16,7 +16,6 @@ section {
     padding: 60px 0;
     grid-column: 1/-1;
     row-gap: 1px;
-    /* outline: solid red 2px */
 }
 
 input, button, textarea, select {
@@ -143,6 +142,11 @@ nav ul li a:hover{
         width: 0px;
         visibility: hidden;
     }
+
+    nav .about_me_nav{
+        width: 0px;
+        visibility: hidden;
+    }
 }
 
 
@@ -219,18 +223,24 @@ footer {
 
 @media (max-width: 1110px) {
 
+    ul {
+        padding: 0px;
+    }
+    
     footer {
         display: flex;
         align-items: center;
         justify-content: center;
+        grid-gap: 0px;
+        height: auto;
     }
     
     .foot_wrapper.footer1 {
-        width: auto;
+        width: 45%;
     }
 
     .foot_wrapper.footer2 {
-        width: auto;
+        width: 45%;
     }
 
     .foot_wrapper.footer3 {

@@ -5,7 +5,6 @@
             "title": "Ashton  Pixel",
             "thumbnail": "Ashton Heads Complete.png",
             "path": [
-                "Ashton Heads Complete.png",
                 "Ashton Head.png",
                 "Ashton Head Glasses.png",
                 "Ashton Head Glasses Ears.png",
@@ -90,7 +89,7 @@
             "name": "Bones",
             "title": "Pixel Bones",
             "thumbnail": "Bones-Complete.png",
-            "path": ["Bones-Complete.png","Bones-Ears-Makeup.png","Bones-Ears.png","Bones-Makeup.png","Bones-Red-Makeup.png","Bones.png"],
+            "path": ["Bones-Ears-Makeup.png","Bones-Ears.png","Bones-Makeup.png","Bones-Red-Makeup.png","Bones.png"],
             "instagram": "https://www.instagram.com/p/DIGJFV4uFkI/",
             "twitter": "",
             "mastadon": "",

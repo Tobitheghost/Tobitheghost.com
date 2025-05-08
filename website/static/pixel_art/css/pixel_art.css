@@ -95,6 +95,8 @@ main {
     justify-content: center;
     align-items: center;
     top: 90%;
+    left: 50%;
+    transform: translate(-50%, 0);
     color: #fff;
     text-shadow: 2px 2px 5px black;
     z-index: 1;
@@ -107,7 +109,7 @@ main {
     height: 20px;
     aspect-ratio: 1;
     top: 15%;
-    left: 95%;
+    left: 85%;
     font-size: 2rem;
     cursor: pointer;
     z-index: 1;
@@ -119,10 +121,9 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     aspect-ratio: auto;
-    min-width: 20vw;
-    min-height: 20vh;
+    min-height: 30vh;
     max-height: 90vh;
-    max-width: 90vw;
+
 }
 
 .social_svg_aside {
