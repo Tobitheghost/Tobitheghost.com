@@ -4,6 +4,8 @@ from flask_mail import Mail
 from flask_socketio import SocketIO
 from flask_cors import CORS
 
+from werkzeug.middleware.proxy_fix import ProxyFix
+
 from .utility.secret import mail_password, mail_username, mail_port, secret_key
 from .utility import logs
 
@@ -17,9 +19,13 @@ def create_app():
     
     # Flask
     app = Flask(__name__)
-    app.config.from_object('config.Config')
+    # app.config.from_object('config.Config')
     app.config['SECRET_KEY'] = secret_key
     app.config['TEMPLATES_AUTO_RELOAD'] = True
+    
+    #Cors
+    app.config['CORS_ORIGINS'] = '*'
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
     
     # Logs
     logs.init_app(app)
