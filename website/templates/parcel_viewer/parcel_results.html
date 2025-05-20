@@ -1,9 +1,7 @@
-{% for entry in data %}
-  <p>Address: <span id="queryAddress"></span></p>
-  <p>Owner Name: <span id="ownerName"></span></p>
-  <p>Owner Name (2): <span id="ownerName2"></span></p>
-  <p>Land Use: <span id="landUse"></span></p>
-  <p>Effective Date: <span id="effectiveDate"></span></p>
-  <p>Assessed Land Value: <span id="assessedLand"></span></p>
-  <p>Assessed Improved Value: <span id="assessedImproved"></span></p>
-{% endfor %}
+<p>Address: <span id="queryAddress">{{results["full_address"]}}</span></p>
+<p>Owner Name: <span id="ownerName">{{results["owner_name"]}}</span></p>
+<p>Owner Name (2): <span id="ownerName2">{{results["owner_name2"]}}</span></p>
+<p>Land Use: <span id="landUse">{{results["landusedesc"]}}</span></p>
+<p>Effective Date: <span id="effectiveDate">{{results["assessment_effective_date"]}}</span></p>
+<p>Assessed Land Value: <span id="assessedLand">{{results["assessed_land_value"]}}</span></p>
+<p>Assessed Improved Value: <span id="assessedImproved">{{results["assessed_improved_value"]}}</span></p>

@@ -11,22 +11,29 @@
 
 {% block content %}
 <section>
-  <article class="text_input_container">
-    <h1 class="search_title">Parcel Viewer</h1>
 
-    <label for="address_input">Search By Address:</label>
-    <div>
+  <article class="search_title"><h1>Parcel Viewer</h1></article>
+
+  <article class="text_input_container">
+    <label for="addressInput">Search By Address:</label>
+    <div class="input_text">
       <input type="text" list="parcel_entires" id="addressInput" name="address_input" placeholder="Enter House Numbers"
-        autocomplete="off" hx-get="/search" hx-trigger="keyup changed delay:500ms" hx-target="#parcel_entires"/>
-      <span>
-        <p> *Select address then press enter</p>
-      </span>
+        autocomplete="off" hx-get="/search" hx-trigger="keyup changed delay:500ms" hx-target="#searchOutput"/>
     </div>
-    <datalist id="parcel_entires">
-      <option value="">8888</option>
-    </datalist>
+
+    <div class="text_search_output">
+      <div id="searchOutput" class="search_output">
+          <p>No Address Entered</p>
+      </div>
+    </div>
   </article>
 
+  
+  
+  <article class="map_info_container">
+    <div id="map"></div>
+  </article>
+  
   <article class="text_detail_container" id="text_detail_container">
     <p>Address: <span id="queryAddress"></span></p>
     <p>Owner Name: <span id="ownerName"></span></p>
@@ -37,9 +44,7 @@
     <p>Assessed Improved Value: <span id="assessedImproved"></span></p>
   </article>
 
-  <article class="map_info_container">
-    <div id="map"></div>
-  </article>
+  
 </section>
 
 <script>
@@ -54,48 +59,18 @@
       let latlngs = [['39.277105911797', '-94.573555314885'], ['39.277129788807', '-94.573314917428'], ['39.277042649122', '-94.573300520356'], ['39.277042188595', '-94.573305170383'], ['39.277018793306', '-94.573540916807'], ['39.277105911797', '-94.573555314885']]
       let polygon = L.polygon(latlngs, {color: 'red'}).addTo(map);
       map.fitBounds(polygon.getBounds());
-  
-  async function addressChnage() {
-    try {
-      const response = await fetch(`/results/${event.target.value}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(event.target.value),
-      });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
+  function updateMap(polyString) {
+    console.log(polyString)
 
-      const result = await response.json();
-
-      document.getElementById("queryAddress").innerHTML = result.address
-      document.getElementById("ownerName").innerHTML = result.owner
-      document.getElementById("ownerName2").innerHTML = result.owner2
-      document.getElementById("landUse").innerHTML = result.land_use
-      document.getElementById("assessedLand").innerHTML = result.asLandVal
-      document.getElementById("assessedImproved").innerHTML = result.asImpVal
-      document.getElementById("effectiveDate").innerHTML = result.effDate
-
-      let latlngs = JSON.parse((result.poly).replace(/'/g, '\"'))
-      let polygon = L.polygon(latlngs, { color: 'red' }).addTo(map);
-
-      map.fitBounds(polygon.getBounds());
-
-    } catch (error) { }
-  };
-
-function updateMap(polyString) {
-  let latlngs = JSON.parse((polyString).replace(/'/g,'\"'))
-  let polygon = L.polygon(latlngs, {color: 'red'}).addTo(map);
-  
-  map.fitBounds(polygon.getBounds());
-}
+    // let latlngs = JSON.parse((polyString).replace(/'/g,'\"'))
+    let polygon = L.polygon(polyString, {color: 'red'}).addTo(map);
+    
+    map.fitBounds(polygon.getBounds());
+  }
 
 // document.getElementById("addressInput").addEventListener("input", addressData)
-document.getElementById("addressInput").addEventListener("change", addressChnage)
+// document.getElementById("addressInput").addEventListener("change", addressChange)
 
 </script>
 

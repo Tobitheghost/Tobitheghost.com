@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS Parcels(
         query = self.cur.execute(
             f'SELECT id, multipolygon, address FROM Parcels WHERE address LIKE "{addr_q}%" LIMIT 50'
         )
-        result = query.fetchall()[0:6]
+        result = query.fetchall()[0:7]
         result_dict = [
             {"id": name[0], "multipolygon": name[1], "address": name[2]} for name in result
         ]
@@ -66,10 +66,11 @@ CREATE TABLE IF NOT EXISTS Parcels(
 
     def viewer(self, addr_q):
         query = self.cur.execute(
-            f'SELECT id, owner_name, owner_name2, landusecode, landusedesc, assessment_effective_date, assessed_land_value, assessed_improved_value, exempt_land_value, exempt_improved_value, full_address,multipolygon FROM Parcels WHERE address = "{addr_q}"'
+            f'SELECT id, owner_name, owner_name2, landusecode, landusedesc, assessment_effective_date, assessed_land_value, assessed_improved_value, exempt_land_value, exempt_improved_value, full_address,multipolygon FROM Parcels WHERE id = "{addr_q}"'
         )
-        result = list(query.fetchone())
-        print(result)
+        # print(query.fetchone())
+        result = query.fetchone()
+        
         result_dict = {
             "id": result[0],
             "owner_name": result[1],

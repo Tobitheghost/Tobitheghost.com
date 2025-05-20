@@ -1,7 +1,14 @@
 {% for data in results %}
     
-    <<option name="option_result" id='{{data.id}}' value='{{data.address}}' onclick=updateMap({{data.multipolygon}}) hx-trigger="keyup" hx-get="/results/{{data.address}}" hx-target="#text_detail_container">
+    <button 
+    name="option_result" 
+    id='{{data.id}}' 
+    value='{{data["full_address"]}}' 
+    onclick='updateMap({{data["multipolygon"]}})'
+    hx-trigger="click" 
+    hx-get="/results/{{data.id}}" 
+    hx-target="#text_detail_container">
         {{data.address}}
-    </option> 
+    </button> 
 
 {% endfor %}
