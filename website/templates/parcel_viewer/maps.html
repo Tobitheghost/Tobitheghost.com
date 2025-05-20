@@ -28,8 +28,6 @@
     </div>
   </article>
 
-  
-  
   <article class="map_info_container">
     <div id="map"></div>
   </article>
@@ -61,16 +59,10 @@
       map.fitBounds(polygon.getBounds());
 
   function updateMap(polyString) {
-    console.log(polyString)
-
-    // let latlngs = JSON.parse((polyString).replace(/'/g,'\"'))
     let polygon = L.polygon(polyString, {color: 'red'}).addTo(map);
     
     map.fitBounds(polygon.getBounds());
   }
-
-// document.getElementById("addressInput").addEventListener("input", addressData)
-// document.getElementById("addressInput").addEventListener("change", addressChange)
 
 </script>
 
