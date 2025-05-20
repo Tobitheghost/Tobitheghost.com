@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS Parcels(
         )
 
     def search(self, addr_q):
-        self.con = sqlite3.connect("website\database\parcel_viewer.db")
+        self.con = sqlite3.connect(os.path.join("website","database","parcel_viewer.db"))
         self.cur = self.con.cursor()
         
         query = self.cur.execute(
