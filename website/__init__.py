@@ -33,7 +33,7 @@ def create_app():
     csrf.init_app(app)
     
     # Cors
-    cors.init_app(app)
+    cors.init_app(app, resources="*")
     app.config['CORS_ORIGINS'] = '*'
     app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
     
