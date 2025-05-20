@@ -1,8 +1,9 @@
 import sqlite3
+import os
 
 class Parcel:
     def __init__(self) -> None:
-        self.con = sqlite3.connect("website\database\parcel_viewer.db")
+        self.con = sqlite3.connect(os.path.join("website","database","parcel_viewer.db"))
         self.cur = self.con.cursor()
         self.create_table()
 
