@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, request, session, current_app, jsonify
+from flask import render_template, Blueprint, request, session, current_app, jsonify, make_response
 from flask_cors import cross_origin
 import logging
 
@@ -25,7 +25,9 @@ def search():
         response_message = [
             {"id":"", "multipolygon": "", "address": ""}
         ]
-    return render_template("parcel_viewer/search_results.html", results=response_message)
+    response = make_response(render_template("parcel_viewer/search_results.html", results=response_message))
+    response.headers["Referrer-Policy"] = "unsafe-url"
+    return response
 
 @parcel_viewer.route("/results/<addressID>", methods=['POST', 'GET'])
 @cross_origin()
