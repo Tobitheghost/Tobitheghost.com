@@ -7,7 +7,6 @@ from .parcel_data import Parcel
 logger = logging.getLogger('views')
 parcel_viewer = Blueprint('parcel_viewer',__name__,static_folder="static",template_folder="templates")
 
-
 @parcel_viewer.route("/maps")
 def maps():
     logging.warn("parcel_viewer/maps.html")

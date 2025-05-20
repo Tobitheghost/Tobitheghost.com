@@ -23,10 +23,6 @@ def create_app():
     app.config['SECRET_KEY'] = secret_key
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     
-    #Cors
-    app.config['CORS_ORIGINS'] = '*'
-    app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
-    
     # Logs
     logs.init_app(app)
     
@@ -38,6 +34,8 @@ def create_app():
     
     # Cors
     cors.init_app(app)
+    app.config['CORS_ORIGINS'] = '*'
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
     
     # Email Server
     app.config["MAIL_SERVER"] = "smtp.gmail.com"
